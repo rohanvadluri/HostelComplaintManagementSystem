@@ -1,0 +1,101 @@
+{
+  "info": {
+    "name": "Hostel Complaint Management",
+    "_postman_id": "d3e7f010-1234-5678-9abc-112233445566",
+    "description": "APIs for Student and Admin in Hostel Complaint Management System",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Register Student",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Rohan\",\n  \"email\": \"rohan@example.com\",\n  \"password\": \"1234\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/students/register",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "students", "register"]
+        }
+      }
+    },
+    {
+      "name": "Raise Complaint",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"description\": \"Room light not working\",\n  \"category\": \"Electrical\",\n  \"user\": {\n    \"email\": \"rohan@example.com\"\n  }\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/students/1/complaints",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "students", "1", "complaints"]
+        }
+      }
+    },
+    {
+      "name": "Get Student Complaints",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8080/api/students/1/complaints",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "students", "1", "complaints"]
+        }
+      }
+    },
+    {
+      "name": "Get All Complaints (Admin)",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8080/api/admin/complaints",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "admin", "complaints"]
+        }
+      }
+    },
+    {
+      "name": "Update Complaint Status (Admin)",
+      "request": {
+        "method": "PUT",
+        "url": {
+          "raw": "http://localhost:8080/api/admin/complaints/1?status=RESOLVED",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "admin", "complaints", "1"],
+          "query": [
+            {
+              "key": "status",
+              "value": "RESOLVED"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
